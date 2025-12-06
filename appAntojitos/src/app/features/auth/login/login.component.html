@@ -1,0 +1,35 @@
+<div class="login-container vh-100 d-flex flex-column">
+  <header class="d-flex align-items-center p-3">
+    <img src="assets/img/logo.png" alt="Logo" class="logo-img" />
+    <span class="lbl_logo">Antojitos</span>
+  </header>
+
+  <div class="flex-grow-1 d-flex justify-content-center align-items-center">
+    <div class="card shadow p-4" style="width: 380px">
+      <h2 class="text-center mb-4">Iniciar Sesión</h2>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="mb-3">
+          <label for="usuario" class="form-label">Usuario</label>
+          <input pInputText class="form-control" pKeyFilter="int" formControlName="usuario" minlength="8"
+            maxlength="8" />
+          <span class="text-danger small" *ngIf="usuario?.invalid && (usuario?.touched || usuario?.dirty)">
+            <ng-container *ngIf="usuario?.hasError('required')">Ingrese su DNI.</ng-container>
+            <ng-container *ngIf="usuario?.hasError('minlength') || usuario?.hasError('maxlength')">Debe tener
+              exactamente 8 dígitos.</ng-container>
+          </span>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña</label>
+          <input type="password" pInputText class="form-control" formControlName="password" minlength="6"
+            maxlength="20" />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">
+          Ingresar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

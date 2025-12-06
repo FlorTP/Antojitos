@@ -1,0 +1,110 @@
+.logo-img{
+  width: 50%;
+  height: 50%;
+}
+.lbl_logo {
+  font-family: "Yellowtail", cursive;
+  font-size: 48px;
+  font-weight: 600;
+  color: #d19380;
+  margin-left: 10px;
+}
+
+
+:host ::ng-deep .p-menu {
+  width: 200px;
+  border: none;
+  background: #fff;
+  height: 100vh;
+}
+
+:host ::ng-deep .p-menuitem-link {
+  padding: 0.75rem 1rem;
+}
+
+:host ::ng-deep .p-menuitem-icon {
+  margin-right: 0.5rem;
+}
+
+:host ::ng-deep .custom-menu .p-menuitem-link {
+  color: #186652 !important;
+  font-weight: 500;
+  border-radius: 8px;
+  margin: 2px 8px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Hover */
+:host ::ng-deep .custom-menu .p-menuitem-link:hover {
+  background-color: #fee6e0;
+  color: #e7aa96;
+}
+
+/* Activo (seleccionado) */
+:host ::ng-deep .custom-menu .p-menuitem-link.router-link-active {
+  background-color: #fee6e0 !important; /* Fondo seleccionado */
+  color: #00a098 !important;            /* Texto seleccionado */
+  font-weight: 600;
+}
+:host ::ng-deep .custom-menu .p-menuitem-link.router-link-active .p-menuitem-icon {
+  color: #e76a4b !important;
+}
+/* sss */
+.logo-img {
+  width: 50%;
+  height: 50%;
+}
+
+.lbl_logo {
+  font-family: "Yellowtail", cursive;
+  font-size: 48px;
+  font-weight: 600;
+  color: #d19380;
+  margin-left: 10px;
+}
+
+/* Sidebar general */
+:host ::ng-deep .p-panelmenu {
+  border: none;
+  background: #fff;
+  width: 220px;
+  height: 100vh;
+  padding-top: 1rem;
+}
+
+/* Enlaces base */
+:host ::ng-deep .p-panelmenu .p-menuitem-link {
+  color: #a7a7ab !important;
+  font-weight: 500;
+  border-radius: 8px;
+  margin: 2px 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover */
+:host ::ng-deep .p-panelmenu .p-menuitem-link:hover {
+  background-color: #fee6e0;
+  color: #e7aa96;
+}
+
+/* Activo (cuando coincide el routerLink) */
+:host ::ng-deep .p-panelmenu .p-menuitem-link.router-link-active {
+  background-color: #13d823 !important;
+  color: #e76a4b !important;
+  font-weight: 600;
+}
+
+/* Ícono activo */
+:host ::ng-deep .p-panelmenu .p-menuitem-link.router-link-active .p-menuitem-icon {
+  color: #0531f5 !important;
+}
+
+/* ------------ */
+:host ::ng-deep .p-menuitem-link.p-menuitem-link-active {
+    background-color: #fee6e0; /* El color que desees, por ejemplo, un azul primario */
+    color: #d46d54 !important;
+    font-weight: bold; /* Opcional: para resaltarlo aún más */
+}
+:host ::ng-deep .p-menuitem-link.p-menuitem-link-active .p-menuitem-icon {
+    color: white;
+}

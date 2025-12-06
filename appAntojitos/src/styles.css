@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --color-primario: #e16349;
+  --color-blanco : #ffffff;
+  --color-gris: #bfc0c0;
+  --color-negro : #1b1a1a;
+  --font-family: "Yellowtail", cursive;
+}
+.btn-guardar{
+  background-color: var(--color-primario) !important;
+  color: var(--color-blanco) !important;
+  border: none !important;
+}
+
+.btn-cancelar{
+  background-color: var(--color-gris) !important;
+  color: var(--color-negro) !important;
+  border: none !important;
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  color:var(--color-primario) !important;
+}
+
+:host ::ng-deep .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  border-color: var(--color-primario) !important;
+  color: var(--color-primario) !important;
+}
+
+/* Si quieres también cambiar el texto del tab activo */
+:host ::ng-deep .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+}
+
+:host ::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  border-color: var(--color-primario) !important;
+  color: var(--color-primario) !important;
+}
+
+:host ::ng-deep .p-highlight {
+  background-color: var(--color-primario);
+  color: white;
+}
+
+.label_Resumen_cabecera{
+  font-family: var(--font-family) !important;
+  font-weight: 600;
+  font-size: 18px;
+}

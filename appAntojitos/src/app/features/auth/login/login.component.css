@@ -1,0 +1,40 @@
+.login-container {
+  background: #ffede3;
+  color: #fff;
+}
+
+.card {
+  border-radius: 1rem;
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-container {
+  height: 60px;
+  width: 60px;
+}
+
+.logo-img {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+}
+
+.btn-primary {
+  background-color: #ffede3;
+  color: black;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #ffede3;
+}
+
+.lbl_logo {
+  font-family: "Yellowtail", cursive;
+  font-size: 48px;
+  font-weight: 600;
+  color: #d19380;
+  margin-left: 10px;
+}

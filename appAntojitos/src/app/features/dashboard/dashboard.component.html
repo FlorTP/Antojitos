@@ -1,0 +1,253 @@
+<div class="d-flex vh-100">
+  <app-sidebar class="p-3" style="width: 250px"></app-sidebar>
+
+  <div class="flex-grow-1 d-flex flex-column">
+    <app-header class="border-bottom p-3"></app-header>
+
+    <main class="p-4 flex-grow-1" style="background: #fbf7f4">
+      <p-tabView>
+        <p-tabPanel header="Parámetros">
+          <div *ngFor="let item of valor; let i = index" class="row mb-2 align-items-center">
+            <div class="col-md-3">
+              <label class="label_Resumen_cabecera">{{ item.nombre }}</label>
+            </div>
+            <div class="col-md-9">
+              <input type="text" pInputText [(ngModel)]="valor[i].valor" placeholder="Ingrese valor" class="w-100" />
+            </div>
+          </div>
+
+          <div class="mt-4 text-end">
+            <button pButton type="button" label="Actualizar Parámetros" class="btn-guardar"
+              (click)="guardarParametros()"></button>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="Egresos">
+          <div class="row">
+            <div class="col-lg-6">
+              <button pButton class="btn-guardar mb-3" (click)="AgregarEgreso()" label="Agregar Egreso"></button>
+
+              <p-dialog header="Agregar Egreso" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+                <form [formGroup]="egresosForm" (ngSubmit)="onSubmit()" autocomplete="off">
+                  <div class="flex align-items-center gap-3 mb-3">
+                    <label for="username" class="font-semibold w-6rem">Cantidad</label>
+                    <input pInputText id="username" class="flex-auto" autocomplete="off" />
+                  </div>
+
+                  <div class="flex align-items-center gap-3 mb-5">
+                    <label for="email" class="font-semibold w-6rem">Descripción</label>
+                    <input pInputText id="email" class="flex-auto" autocomplete="off" />
+                  </div>
+
+                  <div class="flex align-items-center gap-3 mb-5">
+                    <label for="email" class="font-semibold w-6rem">Precio</label>
+                    <input pInputText id="email" class="flex-auto" autocomplete="off" />
+                  </div>
+
+                  <div class="flex align-items-center gap-3 mb-5">
+                    <label for="email" class="font-semibold w-6rem">Tipo</label>
+                    <input pInputText id="email" class="flex-auto" autocomplete="off" />
+                  </div>
+
+                  <div class="flex justify-content-end gap-2">
+                    <button pButton label="Cancelar" class="btn-cancelar" (onClick)="visible = false"></button>
+                    <button pButton label="Guardar" class="btn-guardar" (onClick)="visible = false"></button>
+                  </div>
+                </form>
+              </p-dialog>
+            </div>
+            <div class="col-lg-6 text-right">
+              <label class="">Total Egresos S/</label>
+              <input type="text" pInputText placeholder="10.00" class="ml-2" readonly />
+            </div>
+          </div>
+          <div class="row">
+            <table class="table table-striped mt-5">
+              <thead>
+                <tr>
+                  <th>Cantidad</th>
+                  <th>Compra</th>
+                  <th>Precio (S/)</th>
+                  <th>Tipo</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let egreso of egresos">
+                  <td>{{ egreso.cantidad }}</td>
+                  <td>{{ egreso.descripcion }}</td>
+                  <td>{{ egreso.precio | number : "1.2-2" }}</td>
+                  <td>{{ egreso.tipo }}</td>
+                  <td>
+                    <button pButton type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="Resumen">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-lg-6">
+                  <label class="label_Resumen_cabecera">Total Ventas en Efectivo:</label>
+                </div>
+                <div class="col-lg-6">S/ 200.00</div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-lg-6">
+                  <label class="label_Resumen_cabecera">Caja Inicial del Día:</label>
+                </div>
+                <div class="col-lg-6">S/ 50.00</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-lg-6">
+                  <label class="label_Resumen_cabecera">Total Ventas en YAPE:</label>
+                </div>
+                <div class="col-lg-6">S/ 120.00</div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-lg-6">
+                  <label class="label_Resumen_cabecera">Total Efectivo Final:</label>
+                </div>
+                <div class="col-lg-6">S/ 200.00</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-lg-6">
+                  <label class="label_Resumen_cabecera">Total Egresos:</label>
+                </div>
+                <div class="col-lg-6">S/ 200.00</div>
+              </div>
+            </div>
+            <div class="col-lg-6"></div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-lg-6">
+                  <label class="label_Resumen_cabecera">Hora de Ingreso:</label>
+                </div>
+                <div class="col-lg-6">
+                  <label class=""></label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-lg-12" *ngFor="let grupo of pedidos">
+
+              <!-- Botón -->
+              <div class="row">
+                <div class="col-lg-12 d-flex justify-content-end">
+                  <button pButton (click)="VerPagos(grupo)" class="btn-guardar">
+                    Ver pagos
+                  </button>
+                </div>
+              </div>
+
+              <!-- Tabla de pedidos -->
+              <table class="table table-striped mt-5">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Precio Unitario</th>
+                    <th>Cantidad</th>
+                    <th>Precio Total</th>
+                    <th>Observaciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let resumen of grupo.pedidos">
+                    <td>{{ resumen.descripcion }}</td>
+                    <td>{{ resumen.precio }}</td>
+                    <td>{{ resumen.cantidad }}</td>
+                    <td>{{ resumen.total }}</td>
+                    <td>{{ resumen.observaciones }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+
+            <!-- Dialog de pagos -->
+            <p-dialog header="Ver Pagos" [modal]="true" [(visible)]="visibleVerPago" [style]="{ width: '40rem' }">
+              <table class="table table-striped mt-5">
+                <thead>
+                  <tr>
+                    <th>Hora</th>
+                    <th>Método de Pago</th>
+                    <th>Monto (S/)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let pago of pagosSeleccionados">
+                    <td>{{ pago.hora }}</td>
+                    <td>{{ pago.metodo }}</td>
+                    <td>{{ pago.monto }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </p-dialog>
+
+          </div>
+
+        </p-tabPanel>
+        <p-tabPanel header="Asistencia">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-4">
+                  <label class="label_Resumen_cabecera">Hora de Ingreso:</label>
+                </div>
+                <div class="col-lg-2">
+                  <label class="label_Resumen_cabecera">12:00 am</label>
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col-lg-4">
+                  <label class="label_Resumen_cabecera">Hora de Salida:</label>
+                </div>
+                <div class="col-lg-2">
+                  <label class="label_Resumen_cabecera"></label>
+                </div>
+                <div class="col-lg-2">
+                  <button pButton class="btn-guardar">Registrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <table class="table table-striped mt-5">
+              <thead>
+                <tr>
+                  <th>Día</th>
+                  <th>Hora de Ingreso</th>
+                  <th>Hora de Salida</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let asistencia of asistencias">
+                  <td>{{ asistencia.fecha }}</td>
+                  <td>{{ asistencia.horaIngreso }}</td>
+                  <td>{{ asistencia.horaSalida }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </p-tabPanel>
+      </p-tabView>
+    </main>
+  </div>
+</div>
