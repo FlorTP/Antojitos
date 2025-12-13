@@ -16,8 +16,8 @@ export class SidebarComponent implements OnInit {
 
   constructor() {
     this.items2 = [
-      { label: 'Opción 1', command: (event) => this.selectItem(event.item) },
-      { label: 'Opción 2', command: (event) => this.selectItem(event.item) },
+      { label: 'Opción 1', command: (event) => this.selectItem(event.item!) },
+      { label: 'Opción 2', command: (event) => this.selectItem(event.item!) },
       // ...
     ];
   }

@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "appAntojitos:build:production"
+              "buildTarget": "appAntojitos:build:production"
             },
             "development": {
-              "browserTarget": "appAntojitos:build:development"
+              "buildTarget": "appAntojitos:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "appAntojitos:build"
+            "buildTarget": "appAntojitos:build"
           }
         },
         "test": {
