@@ -30,7 +30,7 @@ export class SidebarComponent implements OnInit {
         routerLink: ['/dashboard']
       },
       {
-        label: 'Mesas',
+        label: 'Pedidos',
         icon: 'pi pi-users',
         routerLink: ['/mesas'],
       },
