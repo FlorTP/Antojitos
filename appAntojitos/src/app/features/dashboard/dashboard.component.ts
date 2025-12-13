@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 
 
 @Component({
@@ -10,10 +10,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class DashboardComponent implements OnInit {
   visible: boolean = false;
   visibleVerPago: boolean = false;
-  egresosForm: FormGroup | any;
+  egresosForm: UntypedFormGroup | any;
   pagosSeleccionados: any[] = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: UntypedFormBuilder) {
 
     this.egresosForm = this.fb.group({
       cantidad    : ['', []],
