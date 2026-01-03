@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AsistenciaService } from 'src/app/core/services/asistencia.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dashboard',
@@ -120,12 +121,12 @@ export class DashboardComponent implements OnInit {
     },
   ];
 
-  asistencias :any;
+  asistencias: any;
 
   ngOnInit(): void {}
 
   onTabChange(event: any) {
-    debugger
+    debugger;
     if (event.index === 3) {
       this.listarFechasRegistros(localStorage.getItem('idSesion')!);
     }
@@ -158,6 +159,16 @@ export class DashboardComponent implements OnInit {
   }
 
   btn_registrar() {
+
+    Swal.fire({
+      title: 'Procesando...',
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      didOpen: () => {
+        Swal.showLoading();
+      },
+    });
+
     var datos = localStorage.getItem('res')!;
 
     const param = {
@@ -170,8 +181,10 @@ export class DashboardComponent implements OnInit {
 
         const idSesionTurno = res.idSesionTurno;
         this.listarFechasRegistros(idSesionTurno);
+        Swal.close();
       },
       error: (err) => console.error(err),
+      complete: () => Swal.close()
     });
   }
 
@@ -183,7 +196,6 @@ export class DashboardComponent implements OnInit {
         idUsuario: idUsuario,
       }).subscribe({
         next: (res) => {
-
           const registroSeleccionado = res.registros.find(
             (r: any) => r.idSesionTurno.toString() === idSesionTurno.toString()
           );
