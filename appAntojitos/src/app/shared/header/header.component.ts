@@ -11,7 +11,7 @@ import { MenuItem } from 'primeng/api';
 export class HeaderComponent implements OnInit {
 
   @ViewChild('menu') menu!: Menu;
-  usuario = 'Flor TP';
+  usuario = localStorage.getItem('nombreUsuario') || 'Usuario';
   usuarioImg = 'assets/img/usuario.png';
   items: MenuItem[] = [];
 

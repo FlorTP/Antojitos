@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://apiaqui'
+  apiUrl: 'https://crepuscular-arlo-semisuccessfully.ngrok-free.dev'
 };
 
 /*

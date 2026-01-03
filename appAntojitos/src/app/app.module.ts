@@ -20,14 +20,17 @@ import { AvatarModule } from 'primeng/avatar';
 import { MesasComponent } from './features/mesas/mesas.component';
 import { TabViewModule } from 'primeng/tabview';
 import { DialogModule } from 'primeng/dialog';
-// import { DropdownModule } from 'primeng/dropdown';
+import { DropdownModule } from 'primeng/dropdown';
+import { MesasPedidosComponent } from './features/mesas-pedidos/mesas-pedidos.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    MesasComponent
+    MesasComponent,
+    MesasPedidosComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,7 @@ import { DialogModule } from 'primeng/dialog';
     AvatarModule,
     TabViewModule,
     DialogModule,
-    // DropdownModule
+    DropdownModule
 ],
   providers: [],
   bootstrap: [AppComponent]

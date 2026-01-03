@@ -21,11 +21,13 @@
 
 .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
   color:var(--color-primario) !important;
+  text-decoration: none;
 }
 
 :host ::ng-deep .p-tabview-nav li.p-highlight .p-tabview-nav-link {
   border-color: var(--color-primario) !important;
   color: var(--color-primario) !important;
+  text-decoration: none;
 }
 
 /* Si quieres también cambiar el texto del tab activo */
@@ -52,4 +54,22 @@
     font-family: var(--font-family) !important;
     font-size: 24px;
     font-weight: bold;
+}
+
+ul{
+  padding-left : 0px !important;
+}
+
+ul li a{
+    text-decoration: none !important;
+    color: #4b5563 !important;
+}
+
+.p-menu .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover {
+    color: #4b5563;
+    background: #ffffff;
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  border-color: var(--color-primario) !important;
 }

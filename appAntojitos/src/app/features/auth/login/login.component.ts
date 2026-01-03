@@ -30,21 +30,24 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-
+debugger
     if (this.loginForm.valid) {
       const param = {
-        usuario: this.loginForm.value.usuario,
+        username: this.loginForm.value.usuario,
         password: this.loginForm.value.password,
       };
 
-      // this.authService.login(param).subscribe({
-      //   next: (res) => {
-      //     localStorage.setItem('token', res.token);
-      //     this.router.navigate(['/dashboard']);
-      //   },
-      //   error: (err) => console.error(err),
-      // });
-      this.router.navigate(['/dashboard']);
+      this.authService.login(param).subscribe({
+        next: (res) => {
+          localStorage.setItem('token', res.accessToken);
+          localStorage.setItem('nombreUsuario', res.nombreEmpl + ' ' + res.apellidoPatEmpl + ' ' + res.apellidoMatEmpl);
+          localStorage.setItem('idUsuario', res.idUsuario);
+          localStorage.setItem('idSesion', res.idSesion);
+          this.router.navigate(['/dashboard']);
+        },
+        error: (err) => console.error(err),
+      });
+      // this.router.navigate(['/dashboard']);
     }
 
   }

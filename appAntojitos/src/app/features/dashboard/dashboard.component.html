@@ -5,7 +5,7 @@
     <app-header class="border-bottom p-3"></app-header>
 
     <main class="p-4 flex-grow-1" style="background: #fbf7f4">
-      <p-tabView>
+      <p-tabView (onChange)="onTabChange($event)">
         <p-tabPanel header="Parámetros">
           <div *ngFor="let item of valor; let i = index" class="row mb-2 align-items-center">
             <div class="col-md-3">
@@ -204,7 +204,7 @@
           </div>
 
         </p-tabPanel>
-        <p-tabPanel header="Asistencia">
+        <p-tabPanel header="Asistencia" >
           <div class="row">
             <div class="col-lg-12">
               <div class="row">
@@ -212,7 +212,7 @@
                   <label class="label_Resumen_cabecera">Hora de Ingreso:</label>
                 </div>
                 <div class="col-lg-2">
-                  <label class="label_Resumen_cabecera">12:00 am</label>
+                  <label class="label_Resumen_cabecera">{{registroSesionTurno?.horaIngreso}}</label>
                 </div>
               </div>
               <div class="row mt-4">
@@ -220,10 +220,10 @@
                   <label class="label_Resumen_cabecera">Hora de Salida:</label>
                 </div>
                 <div class="col-lg-2">
-                  <label class="label_Resumen_cabecera"></label>
+                  <label class="label_Resumen_cabecera">{{ registroSesionTurno?.horaSalida }}</label>
                 </div>
                 <div class="col-lg-2">
-                  <button pButton class="btn-guardar">Registrar</button>
+                  <button pButton class="btn-guardar" (click)="btn_registrar()">Registrar</button>
                 </div>
               </div>
             </div>
